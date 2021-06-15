@@ -2,6 +2,10 @@ sudo: required
 services:
   - docker
 
+env:
+  global:
+    - SHA=$(git rev-parse HEAD)
+
 script:
   - docker build -t heeleeaz/tomcat-server:latest -t heeleeaz/tomcat-server:$SHA -f Dockerfile.dev .
 
