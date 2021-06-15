@@ -3,7 +3,7 @@ services:
   - docker
 
 script:
-  - docker build -t heeleeaz/tomcat-server:latest -t heeleeaz/tomcat-server:$SHA Dockerfile.dev .
+  - docker build -t heeleeaz/tomcat-server:latest -t heeleeaz/tomcat-server:$SHA -f Dockerfile.dev .
 
   - docker push heeleeaz/tomcat-server:latest
   - docker push heeleeaz/tomcat-server:$SHA
