@@ -8,6 +8,9 @@ env:
 
 before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - curl https://sdk.cloud.google.com | bash > /dev/null;
+  - source $HOME/google-cloud-sdk/path.bash.inc
+  - gcloud components update kubectl
 
 script:
   - docker build -t heeleeaz/tomcat-server:latest -t heeleeaz/tomcat-server:$SHA -f Dockerfile.dev .
